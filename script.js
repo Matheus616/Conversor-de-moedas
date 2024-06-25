@@ -1,6 +1,5 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.querySelector(".currency-select");
-const currencyselected = document.querySelector(".currency-selected");
 
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value;
@@ -11,7 +10,6 @@ function convertValues() {
     const euroToday = 5.81;
     const libraToday = 6.87;
     const bitcoinToday = 348.250;
-    const realToday = 1.50;
 
 
     if (currencySelect.value == "dolar") {
@@ -42,34 +40,16 @@ function convertValues() {
         }).format(inputCurrencyValue / euroToday);
     }
 
-    if (currencyselected.value == "real") {
         currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
-        }).format(inputCurrencyValue / realToday);
-    }
-
-    if (currencyselected.value == "dolar") {
-        currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD"
-        }).format(inputCurrencyValue / dolarToday);
-    }
-
-    if (currencyselected.value == "euro") {
-        currencyValueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR"
-        }).format(inputCurrencyValue / euroToday);
-    }
+        }).format(inputCurrencyValue);
 
 }
 
 function changeCurrency() {
     const currancyName = document.getElementById("currancy-name")
     const currancyImage = document.querySelector(".currancy-img")
-    const currencyImageConverted = document.querySelector(".currency-imagem")
-    const currencyNameConverted = document.querySelector(".moeda-valor")
 
 
     if (currencySelect.value === "dolar") {
@@ -90,21 +70,6 @@ function changeCurrency() {
     if (currencySelect.value === "bitcoin") {
         currancyName.innerHTML = "Bitcoin";
         currancyImage.src = "./img/bitcoin 1.png"
-    }
-
-    if (currencySelect.value === "real") {
-        currancyName.innerHTML = "Real";
-        currancyImage.src = "./img/brasil 2.png"
-    }
-
-    if (currencyselected.value === "dolar") {
-        currencyNameConverted.innerHTML = "Dólar americano";
-        currencyImageConverted.src = "./img/estados-unidos (1) 1.png"
-    }
-
-    if (currencyselected.value === "euro") {
-        currencyNameConverted.innerHTML = "Euro";
-        currencyImageConverted.src = "./img/euro 3.png"
     }
 
     convertValues()
