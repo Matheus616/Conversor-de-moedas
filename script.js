@@ -6,10 +6,11 @@ function convertValues() {
     const currencyValueToConvert = document.querySelector(".valor-moeda-converter");
     const currencyValueConverted = document.querySelector(".valor-moeda");
 
-    const dolarToday = 5.43;
-    const euroToday = 5.81;
-    const libraToday = 6.87;
-    const bitcoinToday = 348.250;
+    const bitcoinToday = 657.255;
+    const dolarToday = 5.56;
+    const euroToday = 6.53;
+    const libraToday = 7.47;
+    
 
 
     if (currencySelect.value == "dolar") {
@@ -37,7 +38,7 @@ function convertValues() {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "BTC"
-        }).format(inputCurrencyValue / euroToday);
+        }).format(inputCurrencyValue / bitcoinToday);
     }
 
         currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
@@ -53,7 +54,7 @@ function changeCurrency() {
 
 
     if (currencySelect.value === "dolar") {
-        currancyName.innerHTML = "Dólar americano";
+        currancyName.innerHTML = "Dólar (EUA)";
         currancyImage.src = "./img/estados-unidos (1) 1.png"
     }
 
@@ -75,6 +76,7 @@ function changeCurrency() {
     convertValues()
 
 }
+
 
 
 currencySelect.addEventListener("change", changeCurrency);
